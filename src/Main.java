@@ -11,12 +11,23 @@ public class Main {
     public static void main(String[] args) {
         double fahrenheit;
         double celsius;
+        String userContinue = "y";
 
-        System.out.print("Enter Fahrenheit temperature: ");
-        fahrenheit = input.nextDouble();
-        celsius = (fahrenheit - 32) * 5 / 9;
-        System.out.println(Double.toString(fahrenheit) +
-                "° Fahrenheit is " + Double.toString(celsius) +
-                "° Celsius");
+        // Loop until user wants out
+        while (userContinue.equalsIgnoreCase("y")) {
+            System.out.print("Enter Fahrenheit temperature: ");
+            fahrenheit = input.nextDouble();
+            input.nextLine();   // clear the input buffer
+            celsius = (fahrenheit - 32) * 5 / 9;
+            System.out.println(Double.toString(fahrenheit) +
+                    "° Fahrenheit is " + Double.toString(celsius) +
+                    "° Celsius");
+            // Do we continue?
+            System.out.print("Continue (Y/n)? ");
+            userContinue = input.nextLine();
+            if (userContinue.isEmpty()) {
+                userContinue = "Y";
+            }
+        }
     }
 }
